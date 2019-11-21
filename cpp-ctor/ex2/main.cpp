@@ -11,5 +11,8 @@
 int main() {
   uiuc::Cube c(2);
   std::cout << "Volume: " << c.getVolume() << std::endl;
+
+  uiuc::Cube c1;
+  std::cout << "Volume: " << c1.getVolume() << std::endl;
   return 0;
 }

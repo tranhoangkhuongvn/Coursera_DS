@@ -9,8 +9,9 @@
 using uiuc::Cube;
 
 int main() {
-  Cube c;
-  Cube myCube = c;
-
+  Cube c; //default constructor
+  Cube myCube = c; //copy constructor
+  Cube a;
+  a = c;
   return 0;
 }

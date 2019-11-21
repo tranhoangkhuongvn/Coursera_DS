@@ -19,7 +19,18 @@ void cube_on_heap() {
   delete c1;
 }
 
+
+int reference_count = 0;
+
+class Track {
+	public:
+		Track() {reference_count++; }
+		~Track() {reference_count--; }
+};
+
 int main() {
+  Cube a;
+  Cube *p = &a;
   cube_on_stack();
   cube_on_heap();
   cube_on_stack();

@@ -13,8 +13,8 @@ void foo(Cube cube) {
 }
 
 int main() {
-  Cube c;
-  foo(c);
+  Cube c; //invoke default constructor
+  foo(c); //Call copy constructor
 
   return 0;
 }

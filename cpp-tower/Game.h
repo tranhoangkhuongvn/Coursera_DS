@@ -14,7 +14,8 @@ class Game {
   public:
     Game();
     void solve();
-
+	void move_cube(int, int);	
+	bool is_legal_move(int, int);
     // An overloaded operator<<, allowing us to print the stack via `cout<<`:
     friend std::ostream& operator<<(std::ostream & os, const Game & game);
 

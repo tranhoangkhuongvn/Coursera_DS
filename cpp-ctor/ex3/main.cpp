@@ -9,7 +9,9 @@
 #include <iostream>
 
 int main() {
-  uiuc::Cube c;  // !!!
-  std::cout << "Volume: " << c.getVolume() << std::endl;
+  uiuc::Cube c1;  // !!!
+  uiuc::Cube c2(10);
+  std::cout << "Default Volume: " << c1.getVolume() << std::endl;
+  std::cout << "Custom Volume: " << c2.getVolume() << std::endl;
   return 0;
 }

@@ -13,10 +13,12 @@ int main() {
   v.push_back( 2 );
   v.push_back( 3 );
   v.push_back( 5 );
-
+  v.push_back( 1.4 ); //will be truncated to integer
+  
   std::cout << v[0] << std::endl;
   std::cout << v[1] << std::endl;
   std::cout << v[2] << std::endl;
-
+  std::cout << v[3] << std::endl;
+  
   return 0;
 }

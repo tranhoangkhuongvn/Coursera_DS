@@ -11,7 +11,8 @@ namespace uiuc {
   class Cube {
     public:
       // No default constructor
-      Cube(double length);  // One argument constructor
+      Cube(); //added in a zero parameter constructor
+	  Cube(double length);  // One argument constructor
 
       double getVolume();
       double getSurfaceArea();
