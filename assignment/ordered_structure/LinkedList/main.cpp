@@ -101,6 +101,7 @@ void informalTests() {
       nodePtr = nodePtr->next;
     }
 
+
     // You can also avoid dealing with pointers entirely by using the
     // push and pop interface to cycle through the list contents. (This is somewhat
     // less efficient because it creates and destroys copies of the data throughout
@@ -138,10 +139,13 @@ void informalTests() {
     l.insertOrdered(4);
     l.insertOrdered(-1);
     l.insertOrdered(10);
+
     std::cout << "Inserting items now." << std::endl;
     std::cout << "List: " << l << std::endl;
     std::cout << "Expected: " << expected << std::endl;
-    if (l != expected) errorReaction("wrong result");
+    if (l != expected) errorReaction("wrong insertion result");
+
+
 
     std::cout << "Testing copy constructor:" << std::endl;
     LinkedList<int> l2(l);
@@ -168,7 +172,7 @@ void informalTests() {
     auto l2 = l.insertionSort();
     std::cout << "(After) List: " << l2 << std::endl;
     std::cout << "isSorted: " << std::boolalpha << l2.isSorted() << std::endl;
-    
+
     LinkedList<int> expected;
     expected.pushBack(-1);
     expected.pushBack(4);
@@ -278,4 +282,3 @@ void informalTests() {
     << "\nPlease scroll to the top of the output to read the diagnostics." << std::endl;
 
 }
-

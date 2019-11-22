@@ -35,7 +35,7 @@ public:
     Node* prev;
     // An actual data item that this node contains.
     T data;
-    
+
     // Default constructor: This lets data be constructed by
     // the default constructor of the T type.
     Node() : next(nullptr), prev(nullptr) {}
@@ -180,7 +180,7 @@ public:
   void popFront();
   // Delete the back item of the list.
   void popBack();
-  
+
   // Delete all items in the list, leaving it empty.
   void clear() {
     // As long as there are items left in the list, remove the tail item.
@@ -206,7 +206,7 @@ public:
   // This requires that the data type T supports stream output itself.
   // This is used by the operator<< overload defined in this file.
   std::ostream& print(std::ostream& os) const;
- 
+
   // Insert a new item to the list in the correct position, assuming the list
   // was previously sorted. The item should be inserted before the earliest
   // item in the list that is greater. (This definition is in a separate
@@ -222,30 +222,30 @@ public:
   // This is not an efficient operation; insertion sort is O(n^2).
   // We're providing this for sake of comparison and study.
   LinkedList<T> insertionSort() const;
-  
+
   // Create a list of two lists, where the first list contains the first
   // half of the original list, and the second list contains the second half.
   // If the list has an odd number of elements, the first list will be larger
   // by one element. (The lists returned have copies of data and the original
   // list is unaltered.)
   LinkedList<LinkedList<T>> splitHalves() const;
-  
+
   // Returns a list of new lists, where each list contains a single element
   // of the original list. For example, the original list [1, 2, 3] would be
   // returned as [[1],[2],[3]]. The data are copies, and the original list is
   // not altered.
   LinkedList<LinkedList<T>> explode() const;
-  
+
   // Assuming this list instance is currently sorted, and the "other" list is
   // also already sorted, then merge returns a new sorted list containing all
   // of the items from both of the original lists, in linear time.
   // (This definition is in a separate file for the homework exercises.)
   LinkedList<T> merge(const LinkedList<T>& other) const;
-  
+
   // This is a wrapper function that calls one of either mergeSortRecursive
   // or mergeSortIterative.
   LinkedList<T> mergeSort() const;
-  
+
   // The recursive version of the merge sort algorithm, which returns a new
   // list containing the sorted elements of the current list, in O(n log n) time.
   LinkedList<T> mergeSortRecursive() const;
@@ -256,7 +256,7 @@ public:
 
   // Default constructor: The list will be empty.
   LinkedList() : head_(nullptr), tail_(nullptr), size_(0) {}
-  
+
   // The copy assignment operator replicates the content of the other list
   // one element at a time so that pointers between nodes will be correct
   // for this copy of the list.
@@ -277,7 +277,7 @@ public:
 
     return *this;
   }
-  
+
   // The copy constructor begins by constructing the default LinkedList,
   // then it does copy assignment from the other list. Please see the
   // definition of the copy assignment operator.
@@ -293,7 +293,7 @@ public:
   // Checks whether the size has been correctly updated by member functions,
   // and otherwise throws an exception. This is for testing only.
   bool assertCorrectSize() const;
-  
+
   // Checks whether the reverse-direction links in the list, given by
   // the prev pointers on the nodes, are correct. If an error is found,
   // this throws an exception. This is for testing only.
@@ -584,6 +584,7 @@ LinkedList<T> LinkedList<T>::insertionSort() const {
   const Node* cur = head_;
   while (cur) {
     result.insertOrdered(cur->data);
+    //std::cout << "result: " << result << std::endl; 
     cur = cur->next;
   }
 
@@ -655,7 +656,7 @@ LinkedList<LinkedList<T>> LinkedList<T>::splitHalves() const {
     return halves;
   }
 
-  // (Note about integer division: 
+  // (Note about integer division:
   //  If some positive integer n is odd, then n/2 is the same as (n-1)/2.)
 
   // If the list size is even, the list will be split evenly in half.
@@ -913,4 +914,3 @@ bool LinkedList<T>::assertPrevLinks() const {
 // (Correct usage of "#pragma once" ensures that it does no harm to write
 //  this here, even if both headers are explicitly included in a cpp file.)
 #include "LinkedListExercises.h"
-
