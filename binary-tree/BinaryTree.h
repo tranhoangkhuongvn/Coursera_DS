@@ -1,6 +1,6 @@
 /**
  * BinaryTree class outline.
- * 
+ *
  * @author
  *   Wade Fagen-Ulmschneider <waf@illinois.edu>, Eric Huber
  */
@@ -11,12 +11,13 @@ template <typename T>
 class BinaryTree {
   public:
     // ...
+    // We define this constructor to make sure that head_ is null-initialized.
+    BinaryTree() : root_(nullptr) { }
 
-  private:
     class TreeNode {
       public:
         // *See note below about how references are being used here.
-        T & data;
+        T  data;
         // Note that you can declare multiple pointers on the same line as
         // shorthand, like this:
         //   TreeNode *left, *right;
@@ -26,10 +27,20 @@ class BinaryTree {
         TreeNode* left;
         TreeNode* right;
         // **See note below about how this initialization list is styled.
-        TreeNode(T & data) : data(data), left(nullptr), right(nullptr) { }
+        TreeNode(const T & dataArg) : data(dataArg), left(nullptr), right(nullptr) { }
+
     };
 
+
     TreeNode *root_;
+
+    void inOrderTraversal(TreeNode* root);
+    void preOrderTraversal(TreeNode* root);
+    void postOrderTraversal(TreeNode* root);
+    TreeNode* insert_node(TreeNode* root, const T& newData);
+    TreeNode* find(const T& data);
+    void delete_node(const T& data);
+    int get_tree_size();
 };
 
 // *Note that this implementation of a tree is storing explicit aliases
@@ -57,4 +68,3 @@ class BinaryTree {
 // further templated definitions. The .h and .hpp are both just filename
 // extensions for header files.
 #include "BinaryTree.hpp"
-

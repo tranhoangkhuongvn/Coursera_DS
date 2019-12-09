@@ -1,6 +1,6 @@
 /**
  * BinaryTree auxiliary definitions
- * 
+ *
  * @author
  *   Wade Fagen-Ulmschneider <waf@illinois.edu>, Eric Huber
  */
@@ -24,3 +24,64 @@
 // the wrong header when they use your library, it won't matter this way,
 // because either header will correctly pull in the other header.
 
+#include <iostream>
+
+template <typename T>
+typename BinaryTree<T>::TreeNode* BinaryTree<T>::insert_node(TreeNode* root, const T& newData)
+{
+  if (!root) //Empty tree
+  {
+    TreeNode* newNode = new TreeNode(newData);
+    return newNode;
+  }
+
+  if (newData < root->data)
+  {
+    root->left = insert_node(root->left, newData);
+  }
+  else if (newData > root->data)
+  {
+    root->right = insert_node(root->right, newData);
+  }
+  return root;
+}
+
+template <typename T>
+void BinaryTree<T>::inOrderTraversal(TreeNode * root) {
+  //TODO
+  if (!root)
+  {
+    return;
+  }
+  inOrderTraversal(root->left);
+  std::cout << root->data << " ";
+  inOrderTraversal(root->right);
+}
+
+template <typename T>
+void BinaryTree<T>::preOrderTraversal(TreeNode * root) {
+  //TODO
+}
+
+template <typename T>
+void BinaryTree<T>::postOrderTraversal(TreeNode * root) {
+  //TODO
+}
+
+template <typename T>
+typename BinaryTree<T>::TreeNode* BinaryTree<T>::find(const T& data)
+{
+
+}
+
+template <typename T>
+void BinaryTree<T>::delete_node(const T& data)
+{
+
+}
+
+template <typename T>
+int BinaryTree<T>::get_tree_size()
+{
+
+}
